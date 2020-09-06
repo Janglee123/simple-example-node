@@ -8,7 +8,9 @@ const init = (): void => {
     const commandsDir = path.join(__dirname, 'commands');
 
     fs.readdirSync(commandsDir).forEach(file => {
-        if (!file.endsWith('.js')) return;
+        if (!file.endsWith('.js')) {
+            return;
+        }
         client.loadCommand(commandsDir, file);
     });
 

@@ -22,7 +22,9 @@ export class BitBot extends Client implements IBitBot {
 
     private _addListeners(): void {
         this.on('message', (msg: Message) => {
-            if (msg.author.bot || !msg.guild) return;
+            if (msg.author.bot || !msg.guild) {
+                return;
+            }
 
             const prefixMention = new RegExp(`^<@!?${this.user?.id}> ?$`);
             if (msg.content.match(prefixMention)) {
@@ -30,11 +32,15 @@ export class BitBot extends Client implements IBitBot {
                 msg.react(emote);
             }
 
-            if (!msg.content.startsWith(this._prefix)) return;
+            if (!msg.content.startsWith(this._prefix)) {
+                return;
+            }
             const args = msg.content.slice(this._prefix.length).trim().split(/ +/g);
             const commandName = args.shift()?.toLowerCase() || '';
             const command = this._commands.get(commandName);
-            if (!command) return;
+            if (!command) {
+                return;
+            }
 
             try {
                 command.run(msg, args);
