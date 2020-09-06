@@ -1,4 +1,4 @@
-export default {
+const res = {
     'onJoin': [
         'Aww yeeee it\\u0027s %name%',
         'Is that a person! Hey, %name% !',
@@ -22,3 +22,6 @@ export default {
     ],
     'welcomeDescription': 'Take a read of #readme. When you are done, scan up and down the channel list. Don\\u0027t forget to say hi ;).'
 };
+
+// JSON.parse parses unicode escape sequences used in many responses.
+export default JSON.parse(JSON.stringify(res));

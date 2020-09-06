@@ -10,7 +10,7 @@
     "plugins": [
         "@typescript-eslint"
     ],
-    "parserOptions":{
+    "parserOptions": {
         "sourceType": "module"
     },
     "rules": {
@@ -169,7 +169,7 @@
         ],
         "curly": [
             "warn",
-            "multi-line"
+            "all"
         ],
         "eol-last": "warn",
         "eqeqeq": [
@@ -214,6 +214,10 @@
                     "-"
                 ]
             }
+        ],
+        "brace-style": [
+            "warn",
+            "1tbs"
         ]
     }
 }
