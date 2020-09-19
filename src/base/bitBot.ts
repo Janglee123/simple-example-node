@@ -53,7 +53,8 @@ export class BitBot extends Client implements IBitBot {
             const welcomeChannel = member.guild.systemChannel;
             if (welcomeChannel && member.user) {
                 const random = Math.floor(Math.random() * responses.onJoin.length);
-                const msg = responses.onJoin[random].replace('%name%', member.user.toString());
+                let msg = responses.onJoin[random].replace('%name%', member.user.toString());
+                msg += ' ' + responses.welcomeDescription;
                 welcomeChannel.send(msg);
             }
         });
